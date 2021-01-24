@@ -1,0 +1,25 @@
+{
+  "name": "YelpCamp_Application",
+  "version": "1.0.0",
+  "description": "��#\u0000 \u0000Y\u0000e\u0000l\u0000p\u0000C\u0000a\u0000m\u0000p\u0000_\u0000A\u0000p\u0000p\u0000l\u0000i\u0000c\u0000a\u0000t\u0000i\u0000o\u0000n\u0000\r\u0000 \u0000",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/emteweb/YelpCamp_Application.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/emteweb/YelpCamp_Application/issues"
+  },
+  "homepage": "https://github.com/emteweb/YelpCamp_Application#readme",
+  "dependencies": {
+    "ejs": "^3.1.5",
+    "express": "^4.17.1",
+    "mongoose": "^5.11.13"
+  }
+}
