@@ -63,6 +63,8 @@ passport.deserializeUser(User.deserializeUser()); // Generates a function that i
 // middleware to show flash messages; on every single request we gonna have access to whatever is in flash
 
 app.use((req,res,next) => {
+    console.log(req.session);
+    res.locals.currentUser = req.user;
     res.locals.success = req.flash('success');
     res.locals.error = req.flash('error');
     next();
