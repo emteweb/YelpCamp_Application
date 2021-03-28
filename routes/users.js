@@ -6,10 +6,13 @@ const User = require('../models/user');
 const users = require('../controllers/users')
 const { route } = require('./campgrounds');
 
-router.get('/register', users.renderRegister);
-router.post('/register', catchAsync(users.registerUser));
-router.get('/login', users.renderLogin)
-router.post('/login', passport.authenticate('local', {failureFlash: true, failureRedirect: '/login'}), users.login);
-router.get('/logout',users.logout);
+router.route('/register')
+    .get(users.renderRegister)
+    .post(catchAsync(users.registerUser));
+router.route('/login')
+    .get(users.renderLogin)
+    .post(passport.authenticate('local', { failureFlash: true, failureRedirect: '/login' }), users.login);
+
+router.get('/logout', users.logout);
 
 module.exports = router;
