@@ -10,7 +10,7 @@ const ImageSchema = new Schema({
 ImageSchema.virtual('thumbnail').get(function(){
     return this.url.replace('/upload','/upload/w_200,h_200');
 })
-
+const opts = {toJSON: {virtuals: true}}; //to enable including virtuals when we convert a document to JSON (by default Mongoose does not include virtuals)
 const campgroundSchema = new Schema({
     title: String,
     /* images: [{
@@ -42,7 +42,12 @@ const campgroundSchema = new Schema({
             ref: 'Review'
         }
     ]
-})
+}, opts);
+
+// added in order to display some data when we click on a campground - mapbox feature - field 'properties' is required in mapbox data set
+campgroundSchema.virtual('properties.popUpMarkup').get(function(){
+    return `<a href="/campgrounds/${this._id}"> ${this.title}</a>`
+});
 
 // using mongoose midleware to remove reviews
 campgroundSchema.post('findOneAndDelete', async function (doc) {
